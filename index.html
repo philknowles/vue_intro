@@ -4,7 +4,53 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Vue App</title>
   </head>
-  <body></body>
+  <body>
+
+    <div id="app">
+      <p v-if="message.length === 0">
+        No thing is displayed
+      </p>
+        <ul v-else>
+          <li>
+            {{message}}
+          </li>
+        </ul>
+
+      <div>
+        <ul>
+          <li v-for="verse in verses">
+            {{verse.ref}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp } = Vue
+
+      const app = createApp({
+        data() {
+          return {
+            message: "Hello, Vue Rookie",
+            verses: [
+            {
+              ref:'Romans 8:37'
+            }, 
+            {
+              ref:'Romans 12:2'
+            }, 
+            {
+              ref:'Romans 10:9'
+            }
+          ]
+          }
+        }
+      })
+
+      app.mount('#app');
+    </script>
+  </body>
 </html>
