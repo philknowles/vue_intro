@@ -31,9 +31,8 @@
     <script>
       const { createApp } = Vue
 
-      const app = createApp({
-        data() {
-          return {
+      Vue.createApp({
+        data: () => ({
             message: "Hello, Vue Rookie",
             verses: [
             {
@@ -44,13 +43,13 @@
             }, 
             {
               ref:'Romans 10:9'
+            },
+            {
+              ref: 'Philippians 6:13'
             }
           ]
-          }
-        }
-      })
-
-      app.mount('#app');
+        })
+      }).mount('#app')
     </script>
   </body>
 </html>
